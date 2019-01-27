@@ -1,16 +1,17 @@
 #!/usr/bin/env bash
 
-if [ ! -L web/sites/default/settings.php ] && [ ! -e web/sites/default/settings.php ]; then
-    ln -s ../../../settings.php web/sites/default/settings.php
+SITE_DIR=web/sites/www.shila.test
+
+mkdir -p ${SITE_DIR}
+if [ ! -L ${SITE_DIR}/settings.php ] && [ ! -e ${SITE_DIR}/settings.php ]; then
+    ln -s ../../../settings.php ${SITE_DIR}/settings.php
 fi
-if [ ! -L web/sites/default/settings.single.php ] && [ ! -e web/sites/default/settings.single.php ]; then
-    ln -s ../../../settings.single.php web/sites/default/settings.single.php
+if [ ! -L ${SITE_DIR}/settings.single.php ] && [ ! -e ${SITE_DIR}/settings.single.php ]; then
+    ln -s ../../../settings.single.php ${SITE_DIR}/settings.single.php
 fi
-mkdir -p web/themes
-mkdir -p web/modules
-if [ ! -L web/themes/custom ] && [ ! -e web/themes/custom ]; then
-    ln -s ../../themes web/themes/custom
+if [ ! -L ${SITE_DIR}/themes ] && [ ! -e ${SITE_DIR}/themes ]; then
+    ln -s ../../../themes ${SITE_DIR}/themes
 fi
-if [ ! -L web/modules/custom ] && [ ! -e web/modules/custom ]; then
-    ln -s ../../modules web/modules/custom
+if [ ! -L ${SITE_DIR}/modules ] && [ ! -e ${SITE_DIR}/modules ]; then
+    ln -s ../../../modules ${SITE_DIR}/modules
 fi
