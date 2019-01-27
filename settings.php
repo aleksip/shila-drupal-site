@@ -768,11 +768,11 @@ $settings['entity_update_batch_size'] = 50;
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
-$config_directories['sync'] = '../../../multisites/www.shila.test/config/sync';
-$settings['tome_files_directory'] = '../../../multisites/www.shila.test/files';
-$settings['tome_content_directory'] = '../../../multisites/www.shila.test/content';
-$settings['tome_static_directory'] = '../../../multisites/www.shila.test/html';
-$settings['tome_book_outline_directory'] = '../../../multisites/www.shila.test/extra';
-if (file_exists($app_root . '/' . $site_path . '/settings.single.php')) {
-  include $app_root . '/' . $site_path . '/settings.single.php';
+$config_directories['sync'] = '../config/sync';
+$settings['tome_files_directory'] = '../files';
+$settings['tome_content_directory'] = '../content';
+$settings['tome_static_directory'] = '../html';
+$settings['tome_book_outline_directory'] = '../extra';
+if (file_exists($app_root . '/' . $site_path . '/settings.multisite.php')) {
+  include $app_root . '/' . $site_path . '/settings.multisite.php';
 }
