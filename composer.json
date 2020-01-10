@@ -16,20 +16,18 @@
         }
     ],
     "require": {
+        "php": ">=7.0.8",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.5",
-        "drupal-composer/drupal-scaffold": "^2.5",
         "drupal/console": "^1.0.2",
-        "drupal/core": "^8.7.0",
-        "drush/drush": "^9.0.0",
-        "vlucas/phpdotenv": "^2.4",
+        "drupal/core": "^8.8.0",
+        "drupal/core-composer-scaffold": "^8.8.0",
+        "drush/drush": "^9.7.1 | ^10.0.0",
+        "vlucas/phpdotenv": "^4.0",
         "webflo/drupal-finder": "^1.0.0",
-        "webmozart/path-util": "^2.3",
-
-        "webflo/drupal-core-strict": "^8.7.0",
         "zaporylie/composer-drupal-optimizations": "^1.0",
 
-        "drupal/admin_toolbar": "~1.27",
+        "drupal/admin_toolbar": "~2.0",
         "drupal/coffee": "~1.0",
         "drupal/components": "~1.1",
         "drupal/features": "~3.8",
@@ -39,7 +37,7 @@
         "aleksip/shila_media": "dev-master"
     },
     "require-dev": {
-        "webflo/drupal-core-require-dev": "^8.7.0"
+        "drupal/core-dev": "^8.8.0"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -71,8 +69,14 @@
         ]
     },
     "extra": {
+        "composer-exit-on-patch-failure": true,
         "patchLevel": {
             "drupal/core": "-p2"
+        },
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
+            }
         },
         "installer-paths": {
             "web/core": ["type:drupal-core"],
@@ -80,17 +84,11 @@
             "web/modules/contrib/{$name}": ["type:drupal-module"],
             "web/profiles/contrib/{$name}": ["type:drupal-profile"],
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
-            "drush/Commands/{$name}": ["type:drupal-drush"]
-        },
-        "drupal-scaffold": {
-            "initial": {
-                ".editorconfig": "../.editorconfig",
-                ".gitattributes": "../.gitattributes"
-            }
+            "drush/Commands/contrib/{$name}": ["type:drupal-drush"]
         },
         "patches": {
             "drupal/core": {
-                "https://www.drupal.org/project/drupal/issues/2985199": "https://www.drupal.org/files/issues/2019-02-04/2985199-20.drupal.Extensions-in-Multisite-Directories-Not-Registered-When-Rebuilding-Cache.patch"
+                "https://www.drupal.org/project/drupal/issues/2985199": "https://www.drupal.org/files/issues/2019-10-05/drupal-Rebuilding_Cache-2985199-48.patch"
             }
         }
     }
