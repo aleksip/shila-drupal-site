@@ -89,12 +89,12 @@
  * @endcode
  */
 $databases['default']['default'] = [
-  'database' => getenv('SHILA_MYSQL_DATABASE'),
-  'username' => getenv('SHILA_MYSQL_USER'),
-  'password' => getenv('SHILA_MYSQL_PASSWORD'),
+  'database' => $_ENV['SHILA_MYSQL_DATABASE'],
+  'username' => $_ENV['SHILA_MYSQL_USER'],
+  'password' => $_ENV['SHILA_MYSQL_PASSWORD'],
   'prefix' => '',
-  'host' => getenv('SHILA_MYSQL_HOSTNAME'),
-  'port' => getenv('SHILA_MYSQL_PORT'),
+  'host' => $_ENV['SHILA_MYSQL_HOSTNAME'],
+  'port' => $_ENV['SHILA_MYSQL_PORT'],
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 ];
@@ -772,13 +772,3 @@ $settings['tome_book_outline_directory'] = '../extra';
 if (file_exists($app_root . '/' . $site_path . '/settings.multisite.php')) {
   include $app_root . '/' . $site_path . '/settings.multisite.php';
 }
-$databases['default']['default'] = array (
-  'database' => 'shila_dev_d8',
-  'username' => 'shila',
-  'password' => 'shila',
-  'prefix' => '',
-  'host' => 'localhost',
-  'port' => '3306',
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysql',
-);
